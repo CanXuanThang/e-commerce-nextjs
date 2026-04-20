@@ -4,6 +4,32 @@
         "description": "We offer all kinds of clothing for all ages."
     },
     "Home": {
-        "title": "Hello"
+        "title": "Hello",
+        "hotProduct": "Outstanding products",
+        "trending": "Trending models"
+    },
+    "Login": {
+        "title": "Sign in",
+        "password": "Password",
+        "forgotPassword": "Forgot password ?"
+    },
+    "Header": {
+        "User": {
+            "info": "Information user",
+            "logout": "Logout"
+        }
+    },
+    "Product": {
+        "color": "Color",
+        "size": "Size",
+        "order": "Order Information",
+        "inStock": "In Stock",
+        "outOfStock": "Out of Stock",
+        "delivery": "Fast Delivery",
+        "payment": "Secure Payment",
+        "days": "Your order will arrive within 7 days",
+        "exchange": "Easy Returns & Exchanges",
+        "addToCart": "Add to cart",
+        "buyNow": "Buy now"
     }
 }

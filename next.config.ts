@@ -2,6 +2,18 @@ import type { NextConfig } from "next";
 import createNextIntlPlugin from "next-intl/plugin";
 
 const nextConfig: NextConfig = {
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "res.cloudinary.com",
+      },
+      {
+        protocol: "https",
+        hostname: "krik.vn",
+      },
+    ],
+  },
   webpack(config) {
     // tìm rule xử lý file mặc định của Next.js
     const fileLoaderRule = config.module.rules.find((rule: any) =>

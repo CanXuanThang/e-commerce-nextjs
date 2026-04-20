@@ -1,10 +1,10 @@
-import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import Header from "@/component/Header";
 import { NextIntlClientProvider } from "next-intl";
 import "../globals.css";
 import { getLocale, getMessages, getTranslations } from "next-intl/server";
 import { ReactNode } from "react";
+import Provider from "@/providers";
+import { Toaster } from "sonner";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -41,12 +41,14 @@ export default async function RootLayout({
   return (
     <html lang={locale}>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased h-screen`}
       >
-        <NextIntlClientProvider messages={messages}>
-          <Header />
-          <div className="mx-auto max-w-4xl h-screen">{children}</div>
-        </NextIntlClientProvider>
+        <Provider>
+          <NextIntlClientProvider messages={messages}>
+            {children}
+            <Toaster position="top-center" richColors />
+          </NextIntlClientProvider>
+        </Provider>
       </body>
     </html>
   );

@@ -4,6 +4,32 @@
         "description": "Cung cấp mọi mặt hàng quần áo cho mọi lứa tuổi"
     },
     "Home": {
-        "title": "Xin chào"
+        "title": "Xin chào",
+        "hotProduct": "Sản phẩm nổi bật",
+        "trending": "Xu hướng thời trang"
+    },
+    "Login": {
+        "title": "Đăng nhập",
+        "password": "Mật khẩu",
+        "forgotPassword": "Quên mật khẩu ?"
+    },
+    "Header": {
+        "User": {
+            "info": "Thông tin cá nhân",
+            "logout": "Đăng xuất"
+        }
+    },
+    "Product": {
+        "color": "Màu sắc",
+        "size": "Kích cỡ",
+        "order": "Thông tin đặt hàng",
+        "inStock": "Còn hàng",
+        "outOfStock": "Hết hàng",
+        "delivery": "Giao hành nhanh chóng",
+        "payment": "Thanh toán an toàn",
+        "days": "Đơn hàng sẽ đến tay bạn trong vòng 7 ngày",
+        "exchange": "Đổi trả dễ dàng",
+        "addToCart": "Thêm vào giỏ hàng",
+        "buyNow": "Mua ngay"
     }
 }
