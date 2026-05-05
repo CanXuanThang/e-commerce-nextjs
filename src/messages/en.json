@@ -17,7 +17,8 @@
         "User": {
             "info": "Information user",
             "logout": "Logout"
-        }
+        },
+        "noti": "The project is still in progress, so there are many shortcomings that are being addressed. We apologize for any inconvenience this may cause."
     },
     "Product": {
         "color": "Color",
@@ -30,6 +31,273 @@
         "days": "Your order will arrive within 7 days",
         "exchange": "Easy Returns & Exchanges",
         "addToCart": "Add to cart",
-        "buyNow": "Buy now"
+        "buyNow": "Buy now",
+        "hot": "Outstanding product",
+        "addCartSuccess": "Add to cart successfully",
+        "addCartFailed": "Add to cart failed",
+        "chooseSize": "Please choose size",
+        "quantity": "Quantity"
+    },
+    "Footer": {
+        "company": "E-COMMERCE Vietnam Co., Ltd.",
+        "address": "Address: Hong Ha Nutrition Building, 82 Dich Vong Hau Street, Cau Giay Ward, Hanoi City, Vietnam",
+        "phone": "Phone: 0982.022.969",
+        "contact": "CONTACT US",
+        "order": "ORDER (08:30 - 22:00)",
+        "support": "FEEDBACK & COMPLAINT (08:30 - 22:00)",
+        "connect": "Connect",
+        "krik": "E-COMMERCE",
+        "contactLink": "Contact",
+        "exclusive": "Exclusive Offers",
+        "policy": "POLICIES",
+        "memberPolicy": "Membership Policy",
+        "shippingPolicy": "Shipping Policy",
+        "returnPolicy": "Return Policy",
+        "complaintPolicy": "Complaint Handling Policy",
+        "fashionKnowledge": "FASHION KNOWLEDGE",
+        "news": "What's new at E-COMMERCE?",
+        "about": "ABOUT E-COMMERCE",
+        "storeSystem": "Store System",
+        "recruitment": "Recruitment",
+        "map": "MAP",
+        "license": "***Business registration number: 0108901419 issued by Hanoi Department of Planning and Investment on 17/09/2019"
+    },
+    "NotFound": {
+        "title": "Page not found",
+        "description": "Sorry, we couldn't find the page you're looking for.",
+        "backToHome": "Back to Home",
+        "contactSupport": "Contact Support"
+    },
+    "Common": {
+        "noOptions": "No options",
+        "selectPlaceholder": "Select an option"
+    },
+    "Order": {
+        "orderInfo": "Order Information",
+        "cartItem": "Cart Items",
+        "orderDetail": "Order Details",
+        "paymentMethod": "Payment Method",
+        "province": "Province/City",
+        "district": "District/County",
+        "ward": "Ward/Village",
+        "address": "Specific Address",
+        "phone": "Phone number",
+        "subtotal": "Subtotal",
+        "shippingFee": "Shipping Fee",
+        "shippingNotIncluded": "Shipping fee is not included",
+        "total": "Total",
+        "remove": "Remove",
+        "increaseQuantity": "Increase quantity",
+        "decreaseQuantity": "Decrease quantity",
+        "loadingCart": "Loading cart information...",
+        "emptyCartTitle": "Your cart is empty",
+        "emptyCartDescription": "There are no products in your cart yet.",
+        "savedFromOriginal": "( Saved from original price: {amount} )",
+        "cod": "Cash on Delivery",
+        "btnOrder": "Place Order",
+        "note": "Note"
+    },
+    "Admin": {
+        "title": "Admin Workspace",
+        "menu": "Navigation",
+        "profile": "Personal information",
+        "logout": "Logout",
+        "nav": {
+            "users": "User",
+            "products": "Product",
+            "categories": "Category",
+            "banners": "Banner",
+            "orders": "Order"
+        },
+        "breadcrumb": {
+            "home": "Admin"
+        },
+        "common": {
+            "actions": "Actions",
+            "save": "Save",
+            "cancel": "Cancel",
+            "delete": "Delete",
+            "confirmDelete": "Confirm deletion",
+            "noData": "No data available"
+        },
+        "validation": {
+            "invalidEmail": "Invalid email address",
+            "minLength": "At least {count} characters",
+            "requiredUserName": "Please enter the user name",
+            "requiredPhone": "Please enter the phone number",
+            "requiredProductName": "Please enter the product name",
+            "requiredCategory": "Please choose a category",
+            "requiredDiscount": "Please enter the discount",
+            "invalidDiscount": "Invalid discount",
+            "requiredSku": "Please enter the SKU",
+            "requiredPrice": "Please enter the price",
+            "invalidPrice": "Invalid price",
+            "requiredStock": "Please enter the stock quantity",
+            "invalidStock": "Invalid stock quantity",
+            "requiredDescription": "Please enter the description",
+            "requiredImages": "Please enter the images",
+            "requiredCategoryName": "Please enter the category name",
+            "requiredSlug": "Please enter the slug",
+            "requiredBannerTitle": "Please enter the title",
+            "requiredBannerImage": "Please choose an image",
+            "requiredBannerOrder": "Please enter the display order",
+            "invalidBannerOrder": "Display order must be greater than 0",
+            "minBannerItems": "At least one banner is required",
+            "requiredImageUrl": "Please enter the image URL",
+            "requiredLink": "Please enter the link",
+            "requiredPosition": "Please enter the position"
+        },
+        "toast": {
+            "created": "Created successfully",
+            "updated": "Updated successfully",
+            "deleted": "Deleted successfully",
+            "error": "Something went wrong",
+            "createdFailed": "Create failed",
+            "updateFailed": "Update failed"
+        },
+        "status": {
+            "active": "Active",
+            "inactive": "Inactive",
+            "draft": "Draft",
+            "published": "Published",
+            "archived": "Archived",
+            "pending": "Pending",
+            "processing": "Processing",
+            "shipping": "Shipping",
+            "completed": "Completed",
+            "cancelled": "Cancelled",
+            "inStock": "In Stock",
+            "outOfStock": "Out of Stock"
+        },
+        "users": {
+            "title": "User Management",
+            "create": "Create user",
+            "update": "Update user",
+            "deleteMessage": "Delete user {name}?",
+            "roles": {
+                "admin": "Administrator",
+                "user": "User"
+            },
+            "fields": {
+                "name": "Name",
+                "email": "Email",
+                "phone": "Phone",
+                "role": "Role",
+                "status": "Status",
+                "createdAt": "Created at",
+                "password": "Password"
+            }
+        },
+        "products": {
+            "title": "Product Management",
+            "create": "Create product",
+            "update": "Update product",
+            "deleteMessage": "Delete product {name}?",
+            "filterByCategory": "Filter by category",
+            "selectCategory": "Select category",
+            "emptyPrompt": "Choose a category to display products.",
+            "noProducts": "No products found in this category.",
+            "size": "Size",
+            "fields": {
+                "name": "Product name",
+                "category": "Category",
+                "sku": "SKU",
+                "discount": "Discount (%)",
+                "price": "Price",
+                "stock": "Stock",
+                "status": "Status",
+                "images": "Images",
+                "description": "Description",
+                "quantity": "Quantity"
+            }
+        },
+        "categories": {
+            "title": "Category Management",
+            "create": "Create category",
+            "update": "Update category",
+            "deleteMessage": "Delete category {name}?",
+            "fields": {
+                "name": "Category name",
+                "slug": "Slug",
+                "status": "Status",
+                "productCount": "Products"
+            }
+        },
+        "banners": {
+            "title": "Banner Management",
+            "create": "Create banner",
+            "update": "Update banner",
+            "deleteMessage": "Delete banner {name}?",
+            "addItem": "Add banner",
+            "currentImage": "Current image",
+            "replaceImage": "Replace image",
+            "fields": {
+                "title": "Title",
+                "image": "Image",
+                "imageUrl": "Image URL",
+                "link": "Link",
+                "position": "Position",
+                "order": "Display order",
+                "status": "Status"
+            }
+        },
+        "orders": {
+            "title": "Order Management",
+            "update": "Update order status",
+            "deleteMessage": "Delete order {code}?",
+            "fields": {
+                "code": "Order code",
+                "customer": "Customer",
+                "total": "Total",
+                "status": "Status",
+                "createdAt": "Created at"
+            }
+        },
+        "productDetail": {
+            "title": "Product detail",
+            "back": "Back to products",
+            "loading": "Loading product detail...",
+            "notFound": "Product not found.",
+            "modeCreate": "Create details",
+            "modeUpdate": "Update details",
+            "generalInfo": "General information",
+            "generalInfoHint": "Update the product name, category, discount, and description.",
+            "variants": "Product variants",
+            "variantsHint": "Add, edit, or remove sizes and images inside each variant.",
+            "variantTitle": "Variant {index}",
+            "variantDescription": "Edit color, SKU, sizes, and images for this variant.",
+            "defaultVariant": "Default variant",
+            "emptyVariantName": "Color name not set",
+            "saveChanges": "Save changes",
+            "reset": "Reset",
+            "addVariant": "Add variant",
+            "removeVariant": "Remove variant",
+            "noVariantsYet": "No variants yet",
+            "emptyVariants": "This product has no variants yet. Create the first variant and upload images from your device.",
+            "sizes": "Sizes",
+            "sizesHint": "Each size has its own stock and price.",
+            "addSize": "Add size",
+            "tabSizes": "Sizes",
+            "tabImages": "Images",
+            "images": "Images",
+            "imagesHint": "Upload multiple images from your device, sort them, and choose the primary image.",
+            "addImage": "Add image",
+            "uploadImages": "Upload images",
+            "noImages": "No images in this variant yet.",
+            "removeImage": "Remove image",
+            "primaryImage": "Primary image",
+            "sortOrder": "Sort order",
+            "fields": {
+                "colorName": "Color name",
+                "colorCode": "Color code"
+            },
+            "validation": {
+                "requiredVariant": "The product must have at least one variant.",
+                "requiredColorName": "Please enter a color name for variant {index}.",
+                "requiredSize": "Please add at least one size for variant {index}.",
+                "invalidSize": "Size name cannot be empty.",
+                "requiredImage": "Each variant must have at least one image."
+            }
+        }
     }
 }

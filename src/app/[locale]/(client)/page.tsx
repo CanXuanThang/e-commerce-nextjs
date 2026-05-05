@@ -1,11 +1,11 @@
+import Blog from "@/component/Blogs";
 import ListItem from "@/component/Product";
 import getBanner from "@/data/banner";
 import { getBlogByLocale } from "@/data/blog";
 import { getProducts } from "@/data/product";
-import { Link } from "@/i18n/navigation";
-import { Banner } from "@/models/banner";
-import { BaseResponse } from "@/models/common";
-import { Product } from "@/models/product";
+import { Banner } from "@/types/banner";
+import { BaseResponse } from "@/types/common";
+import { Product } from "@/types/product";
 import { getTranslations } from "next-intl/server";
 import Image from "next/image";
 
@@ -49,35 +49,7 @@ export default async function Home({
         {t("trending")}
       </h2>
 
-      <div className="grid grid-cols-4 gap-3 px-6 mb-6">
-        {listBlog.map((blog) => (
-          <div key={blog.slug}>
-            <Link href={`/blog/${blog.slug}`}>
-              <div className="overflow-hidden">
-                <Image
-                  width={120}
-                  height={80}
-                  quality={100}
-                  src={blog.img}
-                  alt={blog.title}
-                  className="w-full h-[210px] transition-transform duration-500 hover:scale-110 cursor-pointer"
-                />
-              </div>
-              <h3 className="text-xs font-semibold hover:text-red-400 cursor-pointer mt-2 h-8">
-                {blog.title}
-              </h3>
-            </Link>
-            <span className="text-xs text-gray-500">{blog.date}</span>
-            <hr className="border-gray-400 my-2" />
-            <div
-              className="line-clamp-3 text-xs text-gray-500 mt-1"
-              dangerouslySetInnerHTML={{
-                __html: blog.shortContent,
-              }}
-            />
-          </div>
-        ))}
-      </div>
+      <Blog listBlog={listBlog} />
     </section>
   );
 }

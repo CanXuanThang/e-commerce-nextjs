@@ -4,7 +4,7 @@ import { addCommas } from "@/utils";
 import Image from "next/image";
 import { EyeIcon, ShoppingCartIcon } from "@heroicons/react/24/solid";
 import { Link } from "@/i18n/navigation";
-import { Product, ProductImage, Variant } from "@/models/product";
+import { Product, ProductImage, Variant } from "@/types/product";
 import { useState } from "react";
 
 interface Props {

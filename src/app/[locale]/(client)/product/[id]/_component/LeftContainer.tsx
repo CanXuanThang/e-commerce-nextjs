@@ -1,6 +1,6 @@
 "use client";
 
-import { ProductImage } from "@/models/product";
+import { ProductImage } from "@/types/product";
 import Image from "next/image";
 import { useState } from "react";
 import Zoom from "react-medium-image-zoom";

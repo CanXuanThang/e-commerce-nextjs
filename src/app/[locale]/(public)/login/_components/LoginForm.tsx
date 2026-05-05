@@ -1,7 +1,7 @@
 "use client";
 
 import { login } from "@/apis/auth";
-import { LoginRequest } from "@/models/auth";
+import { LoginRequest } from "@/types/auth";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useMutation } from "@tanstack/react-query";
 import { _Translator, useTranslations } from "next-intl";
@@ -10,6 +10,8 @@ import z from "zod";
 import { setCookie } from "nookies";
 import { toast } from "sonner";
 import { useRouter } from "@/i18n/navigation";
+import { useDispatch } from "react-redux";
+import { setLoading } from "@/slices/common";
 
 const schema = z.object({
   email: z.string().email("Email không hợp lệ"),
@@ -19,6 +21,7 @@ const schema = z.object({
 function LoginForm() {
   const t = useTranslations("Login");
   const router = useRouter();
+  const dispatch = useDispatch();
   const {
     register,
     formState: { errors },
@@ -34,20 +37,25 @@ function LoginForm() {
   const loginMutation = useMutation({
     mutationFn: (request: LoginRequest) => login(request),
     onSuccess: (data) => {
+      dispatch(setLoading(false));
       if (data.success) {
         setCookie(null, "accessToken", data.data.accessToken);
         setCookie(null, "refreshToken", data.data.refreshToken);
-        router.replace("/");
+        localStorage.setItem("user", JSON.stringify(data.data.user));
+        router.back();
         return;
       }
       toast.error(data.message);
     },
     onError: (error) => {
+      dispatch(setLoading(false));
       toast.error(error.message);
     },
   });
 
   const onSubmit = async (value: LoginRequest) => {
+    dispatch(setLoading(true));
+
     await loginMutation.mutate(value);
   };
 
@@ -58,7 +66,7 @@ function LoginForm() {
         <div className="mt-2">
           <input
             {...register("email")}
-            className="block w-full rounded-md bg-white  px-3 py-1.5 text-base text-black outline-1 -outline-offset-1 outline-gray-500 placeholder:text-back focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-500 sm:text-sm/6"
+            className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-black outline-1 -outline-offset-1 outline-gray-500 placeholder:text-back focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-500 sm:text-sm/6"
           />
           {errors.email && (
             <p className="mt-1 text-sm text-red-500">{errors.email.message}</p>

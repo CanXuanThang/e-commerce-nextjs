@@ -17,7 +17,8 @@
         "User": {
             "info": "Thông tin cá nhân",
             "logout": "Đăng xuất"
-        }
+        },
+        "noti": "Dự án đang trong quá trình hoàn thành nên còn nhiều thiếu sót đang được khắc phục. Xin lỗi vì những trải nghiệm này"
     },
     "Product": {
         "color": "Màu sắc",
@@ -30,6 +31,278 @@
         "days": "Đơn hàng sẽ đến tay bạn trong vòng 7 ngày",
         "exchange": "Đổi trả dễ dàng",
         "addToCart": "Thêm vào giỏ hàng",
-        "buyNow": "Mua ngay"
+        "buyNow": "Mua ngay",
+        "hot": "Sản phẩm nổi bật",
+        "addCartSuccess": "Thêm vào giỏ hàng thành công",
+        "addCartFailed": "Thêm vào giỏ hàng thất bại",
+        "chooseSize": "Vui lòng chọn kích cỡ",
+        "quantity": "Số lượng"
+    },
+    "Footer": {
+        "company": "Công ty TNHH E-COMMERCE Việt Nam",
+        "address": "Địa chỉ: Tòa nhà HONG HA NUTRITION, số 82 Phố Dịch Vọng Hậu, Phường Cầu Giấy, Thành phố Hà Nội, Việt Nam",
+        "phone": "Điện thoại: 0982.022.969",
+        "contact": "LIÊN HỆ VỚI CHÚNG TÔI",
+        "order": "ĐẶT HÀNG (08:30 - 22:00)",
+        "support": "GÓP Ý, KHIẾU NẠI (08:30 - 22:00)",
+        "connect": "Kết nối",
+        "krik": "E-COMMERCE",
+        "contactLink": "Liên hệ",
+        "exclusive": "Ưu đãi độc quyền",
+        "policy": "CHÍNH SÁCH",
+        "memberPolicy": "Chính sách thành viên",
+        "shippingPolicy": "Chính sách giao hàng",
+        "returnPolicy": "Quy định đổi trả",
+        "complaintPolicy": "Chính sách xử lý khiếu nại",
+        "fashionKnowledge": "KIẾN THỨC MẶC ĐẸP",
+        "news": "E-COMMERCE có gì mới?",
+        "about": "VỀ E-COMMERCE",
+        "storeSystem": "Hệ thống cửa hàng",
+        "recruitment": "Tuyển dụng",
+        "map": "BẢN ĐỒ",
+        "license": "***Mã số doanh nghiệp: 0108901419 do Sở kế hoạch và đầu tư thành phố Hà Nội cấp ngày 17/09/2019"
+    },
+    "NotFound": {
+        "title": "Không tìm thấy trang",
+        "description": "Xin lỗi, chúng tôi không thể tìm thấy trang bạn đang tìm kiếm.",
+        "backToHome": "Quay lại trang chủ",
+        "contactSupport": "Liên hệ hỗ trợ"
+    },
+    "Common": {
+        "noOptions": "Không có lựa chọn nào",
+        "selectPlaceholder": "Chọn một tùy chọn"
+    },
+    "Order": {
+        "orderInfo": "Thông tin đơn hàng",
+        "cartItem": "Sản phẩm trong giỏ",
+        "orderDetail": "Chi Tiết Đơn Hàng",
+        "paymentMethod": "Phương thức thanh toán",
+        "province": "Tỉnh/Thành phố",
+        "district": "Quận/Huyện",
+        "ward": "Phường/Xã",
+        "address": "Địa chỉ cụ thể",
+        "phone": "Số điện thoại",
+        "subtotal": "Tạm tính",
+        "shippingFee": "Phí giao hàng",
+        "shippingNotIncluded": "Chưa bao gồm phí vận chuyển",
+        "total": "Tổng",
+        "remove": "Xóa",
+        "increaseQuantity": "Tăng số lượng",
+        "decreaseQuantity": "Giảm số lượng",
+        "loadingCart": "Đang tải thông tin giỏ hàng...",
+        "emptyCartTitle": "Giỏ hàng đang trống",
+        "emptyCartDescription": "Chưa có sản phẩm nào trong giỏ hàng của bạn.",
+        "savedFromOriginal": "( Đã giảm trên giá gốc: {amount} )",
+        "cod": "Thanh toán khi nhận hàng",
+        "btnOrder": "Đặt hàng",
+        "note": "Ghi chú"
+    },
+    "Admin": {
+        "title": "Quản trị hệ thống",
+        "menu": "Điều hướng",
+        "profile": "Thông tin cá nhân",
+        "logout": "Đăng xuất",
+        "nav": {
+            "users": "User",
+            "products": "Product",
+            "categories": "Category",
+            "banners": "Banner",
+            "orders": "Order"
+        },
+        "breadcrumb": {
+            "home": "Admin"
+        },
+        "common": {
+            "actions": "Thao tác",
+            "save": "Lưu",
+            "cancel": "Hủy",
+            "delete": "Xóa",
+            "confirmDelete": "Xác nhận xóa",
+            "noData": "Chưa có dữ liệu"
+        },
+        "validation": {
+            "invalidEmail": "Email không hợp lệ",
+            "minLength": "Ít nhất {count} ký tự",
+            "requiredUserName": "Vui lòng nhập tên người dùng",
+            "requiredPhone": "Vui lòng nhập số điện thoại",
+            "requiredProductName": "Vui lòng nhập tên sản phẩm",
+            "requiredCategory": "Vui lòng chọn danh mục",
+            "requiredDiscount": "Vui lòng nhập giảm giá",
+            "invalidDiscount": "Giảm giá không hợp lệ",
+            "requiredSku": "Vui lòng nhập SKU",
+            "requiredPrice": "Vui lòng nhập giá",
+            "invalidPrice": "Giá không hợp lệ",
+            "requiredStock": "Vui lòng nhập tồn kho",
+            "invalidStock": "Tồn kho không hợp lệ",
+            "requiredDescription": "Vui lòng nhập mô tả",
+            "requiredImages": "Vui lòng nhập hình ảnh",
+            "requiredCategoryName": "Vui lòng nhập tên danh mục",
+            "requiredSlug": "Vui lòng nhập slug",
+            "requiredBannerTitle": "Vui lòng nhập tiêu đề",
+            "requiredBannerImage": "Vui lòng chọn hình ảnh",
+            "requiredBannerOrder": "Vui lòng nhập thứ tự hiển thị",
+            "invalidBannerOrder": "Thứ tự hiển thị phải lớn hơn 0",
+            "minBannerItems": "Cần ít nhất một banner",
+            "requiredImageUrl": "Vui lòng nhập đường dẫn ảnh",
+            "requiredLink": "Vui lòng nhập liên kết",
+            "requiredPosition": "Vui lòng nhập vị trí"
+        },
+        "toast": {
+            "created": "Tạo mới thành công",
+            "updated": "Cập nhật thành công",
+            "deleted": "Xóa thành công",
+            "error": "Đã có lỗi xảy ra",
+            "createdFailed": "Tạo mới thất bại",
+            "updateFailed": "Cập nhật thất bại"
+        },
+        "status": {
+            "active": "Đang hoạt động",
+            "inactive": "Ngưng hoạt động",
+            "draft": "Nháp",
+            "published": "Đang bán",
+            "archived": "Lưu trữ",
+            "pending": "Chờ xác nhận",
+            "processing": "Đang xử lý",
+            "shipping": "Đang giao",
+            "completed": "Hoàn thành",
+            "cancelled": "Đã hủy",
+            "inStock": "Còn hàng",
+            "outOfStock": "Hết hàng"
+        },
+        "users": {
+            "title": "Quản lý người dùng",
+            "create": "Tạo người dùng",
+            "update": "Cập nhật người dùng",
+            "deleteMessage": "Xóa người dùng {name}?",
+            "roles": {
+                "admin": "Quản trị viên",
+                "user": "Người dùng"
+            },
+            "fields": {
+                "name": "Họ tên",
+                "email": "Email",
+                "phone": "Số điện thoại",
+                "role": "Vai trò",
+                "status": "Trạng thái",
+                "createdAt": "Ngày tạo",
+                "password": "Mật khẩu"
+            }
+        },
+        "products": {
+            "title": "Quản lý sản phẩm",
+            "create": "Tạo sản phẩm",
+            "update": "Cập nhật sản phẩm",
+            "deleteMessage": "Xóa sản phẩm {name}?",
+            "filterByCategory": "Lọc theo danh mục",
+            "selectCategory": "Chọn danh mục",
+            "emptyPrompt": "Hãy chọn danh mục để hiển thị sản phẩm.",
+            "noProducts": "Danh mục này chưa có sản phẩm.",
+            "size": "Kích cỡ",
+            "fields": {
+                "name": "Tên sản phẩm",
+                "category": "Danh mục",
+                "sku": "Mã SKU",
+                "discount": "Giảm giá (%)",
+                "price": "Giá bán",
+                "stock": "Tồn kho",
+                "status": "Trạng thái",
+                "images": "Danh sách ảnh",
+                "description": "Mô tả",
+                "quantity": "Số lượng"
+            }
+        },
+        "categories": {
+            "title": "Quản lý danh mục",
+            "create": "Tạo danh mục",
+            "update": "Cập nhật danh mục",
+            "deleteMessage": "Xóa danh mục {name}?",
+            "fields": {
+                "name": "Tên danh mục",
+                "slug": "Slug",
+                "status": "Trạng thái",
+                "productCount": "Số sản phẩm",
+                "parentCategory": {
+                    "label": "Danh mục cha",
+                    "none": "Không có",
+                    "placeholder": "Chọn danh mục cha"
+                }
+            }
+        },
+        "banners": {
+            "title": "Quản lý banner",
+            "create": "Tạo banner",
+            "update": "Cập nhật banner",
+            "deleteMessage": "Xóa banner {name}?",
+            "addItem": "Thêm banner",
+            "currentImage": "Ảnh hiện tại",
+            "replaceImage": "Thay ảnh mới",
+            "fields": {
+                "title": "Tiêu đề",
+                "image": "Hình ảnh",
+                "imageUrl": "Đường dẫn ảnh",
+                "link": "Liên kết",
+                "position": "Vị trí",
+                "order": "Thứ tự hiển thị",
+                "status": "Trạng thái"
+            }
+        },
+        "orders": {
+            "title": "Quản lý đơn hàng",
+            "update": "Cập nhật trạng thái đơn",
+            "deleteMessage": "Xóa đơn hàng {code}?",
+            "fields": {
+                "code": "Mã đơn",
+                "customer": "Khách hàng",
+                "total": "Tổng tiền",
+                "status": "Trạng thái",
+                "createdAt": "Ngày tạo"
+            }
+        },
+        "productDetail": {
+            "title": "Chi tiết sản phẩm",
+            "back": "Quay lại danh sách sản phẩm",
+            "loading": "Đang tải chi tiết sản phẩm...",
+            "notFound": "Không tìm thấy sản phẩm.",
+            "modeCreate": "Tạo chi tiết",
+            "modeUpdate": "Cập nhật chi tiết",
+            "generalInfo": "Thông tin cơ bản",
+            "generalInfoHint": "Cập nhật tên, danh mục, giảm giá và mô tả của sản phẩm.",
+            "variants": "Mẫu sản phẩm",
+            "variantsHint": "Bạn có thể thêm mới, chỉnh sửa hoặc xóa size và ảnh trong từng mẫu.",
+            "variantTitle": "Mẫu {index}",
+            "variantDescription": "Chỉnh sửa màu sắc, SKU, size và bộ ảnh cho mẫu này.",
+            "defaultVariant": "Mẫu mặc định",
+            "emptyVariantName": "Chưa nhập tên màu",
+            "saveChanges": "Lưu thay đổi",
+            "reset": "Khôi phục",
+            "addVariant": "Thêm mẫu",
+            "removeVariant": "Xóa mẫu",
+            "noVariantsYet": "Chưa có mẫu",
+            "emptyVariants": "Sản phẩm chưa có mẫu nào. Hãy tạo mẫu đầu tiên và tải ảnh từ máy của bạn.",
+            "sizes": "Kích cỡ",
+            "sizesHint": "Mỗi size có tồn kho và giá riêng.",
+            "addSize": "Thêm size",
+            "tabSizes": "Size",
+            "tabImages": "Ảnh",
+            "images": "Hình ảnh",
+            "imagesHint": "Tải nhiều ảnh từ máy, sắp xếp thứ tự và chọn ảnh đại diện.",
+            "addImage": "Thêm ảnh",
+            "uploadImages": "Tải ảnh lên",
+            "noImages": "Chưa có ảnh nào trong mẫu này.",
+            "removeImage": "Xóa ảnh",
+            "primaryImage": "Ảnh chính",
+            "sortOrder": "Thứ tự hiển thị",
+            "fields": {
+                "colorName": "Tên màu",
+                "colorCode": "Mã màu"
+            },
+            "validation": {
+                "requiredVariant": "Sản phẩm phải có ít nhất một mẫu.",
+                "requiredColorName": "Vui lòng nhập tên màu cho mẫu {index}.",
+                "requiredSize": "Vui lòng thêm ít nhất một size cho mẫu {index}.",
+                "invalidSize": "Tên size không được để trống.",
+                "requiredImage": "Mỗi mẫu phải có ít nhất một ảnh."
+            }
+        }
     }
 }

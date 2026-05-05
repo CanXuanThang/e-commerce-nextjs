@@ -1,5 +1,5 @@
-import { LoginRequest, LoginResponse } from "@/models/auth";
-import { BaseResponse } from "@/models/common";
+import { LoginRequest, LoginResponse } from "@/types/auth";
+import { BaseResponse } from "@/types/common";
 import axiosClient from "@/config/axiosClient";
 
 export const login = async (

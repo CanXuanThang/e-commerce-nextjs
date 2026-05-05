@@ -5,7 +5,7 @@ import { Autoplay, Pagination } from "swiper/modules";
 import CartItem from "./CartItem";
 import "swiper/css";
 import "swiper/css/navigation";
-import { Product } from "@/models/product";
+import { Product } from "@/types/product";
 
 interface Props {
   data: Product[];

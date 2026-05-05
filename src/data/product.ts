@@ -10,8 +10,24 @@ export async function getProducts() {
   return res.json();
 }
 
-export async function getProductbyId(id: number) {
+export async function getProductById(id: number) {
   const res = await fetch(`${apiURL}/products/${id}`, {
+    next: { revalidate: 3600 },
+  });
+
+  return res.json();
+}
+
+export async function getProductByBestReview() {
+  const res = await fetch(`${apiURL}/products/best-review`, {
+    next: { revalidate: 3600 },
+  });
+
+  return res.json();
+}
+
+export async function getCartItems() {
+  const res = await fetch(`${apiURL}/cart-items`, {
     next: { revalidate: 3600 },
   });
 

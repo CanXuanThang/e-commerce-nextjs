@@ -3,8 +3,9 @@ import { NextIntlClientProvider } from "next-intl";
 import "../globals.css";
 import { getLocale, getMessages, getTranslations } from "next-intl/server";
 import { ReactNode } from "react";
-import Provider from "@/providers";
 import { Toaster } from "sonner";
+import Container from "@/providers";
+import Loading from "@/component/Loading";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -43,12 +44,13 @@ export default async function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased h-screen`}
       >
-        <Provider>
+        <Container>
           <NextIntlClientProvider messages={messages}>
             {children}
             <Toaster position="top-center" richColors />
+            <Loading />
           </NextIntlClientProvider>
-        </Provider>
+        </Container>
       </body>
     </html>
   );

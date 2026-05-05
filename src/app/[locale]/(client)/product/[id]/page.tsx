@@ -1,10 +1,12 @@
-import { getProductbyId } from "@/data/product";
+import { getProductById } from "@/data/product";
 import ProductItem from "./_component/ProductItem";
-import { Product as IProduct } from "@/models/product";
-import { BaseResponse } from "@/models/common";
-import { cache } from "react";
+import { Product as IProduct } from "@/types/product";
+import { BaseResponse } from "@/types/common";
+import { cache, Suspense } from "react";
+import HotProduct from "./_component/HotProduct";
+import Skeleton from "@/component/Skeleton";
 
-const getProductCached = cache(getProductbyId);
+const getProductCached = cache(getProductById);
 
 export async function generateMetadata({
   params,
@@ -27,6 +29,12 @@ async function Product({ params }: { params: Promise<{ id: string }> }) {
   return (
     <section>
       <ProductItem data={product.data} />
+
+      <Suspense
+        fallback={<Skeleton count={4} className="grid grid-cols-4 gap-4" />}
+      >
+        <HotProduct />
+      </Suspense>
     </section>
   );
 }

@@ -56,6 +56,7 @@ export default function UserMenu() {
             onClick={() => {
               destroyCookie(null, "accessToken");
               destroyCookie(null, "refreshToken");
+              localStorage.clear();
               window.location.reload();
             }}
             className="block w-full px-4 py-2 text-left hover:bg-gray-100 cursor-pointer"

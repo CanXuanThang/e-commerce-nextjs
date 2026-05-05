@@ -26,7 +26,9 @@ export default async function RootLayout({
   return (
     <>
       <Header />
-      <div className="min-h-screen mt-[117px]">{children}</div>
+      <div className="min-h-screen pt-[92px] pb-8 md:pt-[135px]">
+        {children}
+      </div>
       <Footer />
     </>
   );

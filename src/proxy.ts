@@ -10,48 +10,34 @@ const intlMiddleware = createMiddleware({
   },
 });
 
-const authRoutes = ["/login"];
-const protectedRoutes = ["/dashboard", "/profile", "/admin"];
-const adminRoutes = ["/admin"];
+const ADMIN_ROUTE = "/admin";
 
 export default async function middleware(req: NextRequest) {
-  const token = req.cookies.get("token")?.value;
+  const pathname = req.nextUrl.pathname;
+  const pathnameWithoutLocale =
+    pathname.replace(/^\/(en|vi)(?=\/|$)/, "") || "/";
 
-  let role = null;
-
-  if (token) {
-    try {
-      const { payload } = await jwtVerify(
-        token,
-        new TextEncoder().encode(process.env.JWT_SECRET_KEY),
-      );
-
-      role = payload.role;
-    } catch {
-      return NextResponse.redirect(new URL("/login", req.url));
-    }
+  if (!pathnameWithoutLocale.startsWith(ADMIN_ROUTE)) {
+    return intlMiddleware(req);
   }
 
-  const pathname = req.nextUrl.pathname;
+  const token = req.cookies.get("accessToken")?.value;
 
-  const pathnameWithoutLocale = pathname.replace(/^\/(en|vi)/, "") || "/";
-
-  if (
-    !token &&
-    protectedRoutes.some((r) => pathnameWithoutLocale.startsWith(r))
-  ) {
+  if (!token) {
     return NextResponse.redirect(new URL("/login", req.url));
   }
 
-  if (token && authRoutes.includes(pathnameWithoutLocale)) {
-    return NextResponse.redirect(new URL("/dashboard", req.url));
-  }
+  try {
+    const { payload } = await jwtVerify(
+      token,
+      new TextEncoder().encode(process.env.JWT_SECRET_KEY),
+    );
 
-  if (
-    role !== "admin" &&
-    adminRoutes.some((r) => pathnameWithoutLocale.startsWith(r))
-  ) {
-    return NextResponse.redirect(new URL("/403", req.url));
+    if (payload.role !== "admin") {
+      return NextResponse.redirect(new URL("/403", req.url));
+    }
+  } catch {
+    return NextResponse.redirect(new URL("/login", req.url));
   }
 
   return intlMiddleware(req);
