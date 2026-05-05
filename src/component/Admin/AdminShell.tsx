@@ -73,7 +73,7 @@ export default function AdminShell({ locale, children }: Props) {
             </button>
             <Link href="/admin/users" className="flex items-center gap-3">
               <Image
-                src="/logo-new.png"
+                src="/logo3.png"
                 alt="logo"
                 width={100}
                 height={100}

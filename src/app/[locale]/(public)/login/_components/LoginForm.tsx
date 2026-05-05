@@ -4,14 +4,15 @@ import { login } from "@/apis/auth";
 import { LoginRequest } from "@/types/auth";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useMutation } from "@tanstack/react-query";
-import { _Translator, useTranslations } from "next-intl";
+import { useTranslations } from "next-intl";
 import { useForm } from "react-hook-form";
 import z from "zod";
 import { setCookie } from "nookies";
 import { toast } from "sonner";
-import { useRouter } from "@/i18n/navigation";
 import { useDispatch } from "react-redux";
 import { setLoading } from "@/slices/common";
+import { useRouter } from "@/i18n/navigation";
+import { useSearchParams } from "next/navigation";
 
 const schema = z.object({
   email: z.string().email("Email không hợp lệ"),
@@ -21,7 +22,9 @@ const schema = z.object({
 function LoginForm() {
   const t = useTranslations("Login");
   const router = useRouter();
+  const searchParams = useSearchParams();
   const dispatch = useDispatch();
+
   const {
     register,
     formState: { errors },
@@ -42,12 +45,15 @@ function LoginForm() {
         setCookie(null, "accessToken", data.data.accessToken);
         setCookie(null, "refreshToken", data.data.refreshToken);
         localStorage.setItem("user", JSON.stringify(data.data.user));
-        router.back();
+
+        const redirect = searchParams.get("redirect");
+        router.push(redirect || "/");
         return;
       }
+
       toast.error(data.message);
     },
-    onError: (error) => {
+    onError: (error: any) => {
       dispatch(setLoading(false));
       toast.error(error.message);
     },
@@ -55,12 +61,11 @@ function LoginForm() {
 
   const onSubmit = async (value: LoginRequest) => {
     dispatch(setLoading(true));
-
-    await loginMutation.mutate(value);
+    loginMutation.mutate(value); // 👈 không cần await
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} method="POST" className="space-y-6">
+    <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
       <div>
         <label className="block text-sm/6 font-medium text-back">Email</label>
         <div className="mt-2">
@@ -79,14 +84,6 @@ function LoginForm() {
           <label className="block text-sm/6 font-medium text-back">
             {t("password")}
           </label>
-          <div className="text-sm">
-            <a
-              href="#"
-              className="font-semibold text-indigo-300 hover:text-indigo-300"
-            >
-              {t("forgotPassword")}
-            </a>
-          </div>
         </div>
         <div className="mt-2">
           <input
@@ -105,7 +102,7 @@ function LoginForm() {
       <div>
         <button
           type="submit"
-          className="flex w-full justify-center rounded-md bg-indigo-500 px-3 py-1.5 text-sm/6 font-semibold text-white hover:bg-indigo-400 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500"
+          className="flex w-full justify-center rounded-md bg-indigo-500 px-3 py-1.5 text-sm/6 font-semibold text-white hover:bg-indigo-400"
         >
           {t("title")}
         </button>

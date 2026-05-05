@@ -23,7 +23,7 @@ async function LoginPage() {
       </div>
       <div className="sm:mx-auto sm:w-full sm:max-w-sm">
         <Image
-          src="/logo-new.png"
+          src="/logo3.png"
           alt="Your Company"
           className="mx-auto h-15 w-auto"
           width={300}
