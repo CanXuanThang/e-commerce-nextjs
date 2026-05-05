@@ -39,7 +39,7 @@ function Category({
             {parent.name}
           </Link>
 
-          {parent.children.length > 0 && (
+          {parent.children && parent.children.length > 0 && (
             <div className="absolute hidden group-hover:block bg-white shadow-md p-4 min-w-[200px] bottom-[-52px] left-0">
               {parent.children.map((child) => (
                 <div key={child.id}>
