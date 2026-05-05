@@ -9,7 +9,6 @@ import {
 import { getCategories } from "@/apis/category";
 import { setLoading } from "@/slices/common";
 import { Option } from "@/types/common";
-import { Category } from "@/types/product";
 import { PlusIcon } from "@heroicons/react/24/outline";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { useTranslations } from "next-intl";
@@ -34,6 +33,7 @@ import {
   validateProductForm,
 } from "./utils";
 import VariantAccordion from "./VariantAccordion";
+import { CategoryResponse } from "@/types/category";
 
 interface Props {
   productId: number;
@@ -49,7 +49,7 @@ export default function ProductDetail({ productId }: Props) {
     queryKey: ["admin-categories"],
     queryFn: async () => {
       const response = await getCategories();
-      return (response.data ?? []) as Category[];
+      return (response?.data ?? []) as CategoryResponse[];
     },
   });
 
