@@ -40,7 +40,7 @@ function Header() {
       dispatch(setCartItem(response.data));
       return response.data;
     },
-    enabled: !!useInfo.email && cartItems.length === 0,
+    enabled: !!useInfo && !!useInfo?.email && cartItems.length === 0,
     refetchOnWindowFocus: false,
     refetchOnReconnect: false,
     refetchOnMount: false,
