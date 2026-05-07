@@ -15,7 +15,8 @@ import { RootState } from "@/store";
 import { CartItemStates } from "@/slices/cartItem";
 import { useRouter } from "@/i18n/navigation";
 import z from "zod";
-import { zodResolver } from "@hookform/resolvers/zod";
+import useGetLocalStorage from "@/hook/useGetLocalStorage";
+import { User } from "@/types/auth";
 
 export interface FormOrderValue extends OrderRequest {
   province: Option;
@@ -31,9 +32,7 @@ function OrderInfo() {
   const { orderItems }: CartItemStates = useSelector(
     (state: RootState) => state.cartItem,
   );
-  const userInfo = JSON.parse(
-    JSON.stringify(localStorage.getItem("user") ?? ""),
-  );
+  const userInfo = useGetLocalStorage<User>("user");
 
   const schema = z.object({
     address: z.string(),

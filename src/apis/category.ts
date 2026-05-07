@@ -30,3 +30,10 @@ export const deleteCategory = async (
   const response = await axiosClient.delete(`/categories/${id}`);
   return response.data;
 };
+
+export const getCategoriesById = async (
+  id: number,
+): Promise<BaseResponse<CategoryResponse[]>> => {
+  const response = await axiosClient.get(`/categories/${id}`);
+  return response.data;
+};

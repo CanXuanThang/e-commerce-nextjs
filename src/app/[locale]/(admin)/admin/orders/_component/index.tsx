@@ -2,16 +2,18 @@
 
 import AdminBreadcrumb from "@/component/Admin/AdminBreadcrumb";
 import AdminTable, { AdminTableColumn } from "@/component/Admin/AdminTable";
-import { formatAdminCurrency } from "@/utils/adminStorage";
 import { PencilSquareIcon, TrashIcon } from "@heroicons/react/24/outline";
 import { useLocale, useTranslations } from "next-intl";
 import { useState } from "react";
 import DeleteOrder from "./DeleteOrder";
 import UpdateOrder from "./UpdateOrder";
 import { Order } from "@/types/order";
-import { useQuery } from "@tanstack/react-query";
-import { getAllOrders } from "@/apis/order";
+import { useMutation, useQuery } from "@tanstack/react-query";
+import { getAllOrders, resetCount } from "@/apis/order";
 import { format } from "date-fns";
+import { formatAdminCurrency } from "@/utils";
+import { useDispatch } from "react-redux";
+import { setNotificationCount } from "@/slices/common";
 
 type DialogMode = "update" | "delete" | null;
 
@@ -28,6 +30,7 @@ function getStatusClass(status: string) {
 }
 
 export default function OrdersPage() {
+  const dispatch = useDispatch();
   const t = useTranslations("Admin");
   const locale = useLocale();
   const [dialogMode, setDialogMode] = useState<DialogMode>(null);
@@ -36,6 +39,19 @@ export default function OrdersPage() {
   const { data, isLoading, refetch } = useQuery({
     queryKey: ["get-all-orders"],
     queryFn: getAllOrders,
+  });
+
+  const {} = useQuery({
+    queryKey: ["reset-noti"],
+    queryFn: async () => {
+      const res = await resetCount();
+
+      if (res.success) {
+        dispatch(setNotificationCount(0));
+      }
+      return;
+    },
+    enabled: true,
   });
 
   const closeDialog = () => {
@@ -130,6 +146,7 @@ export default function OrdersPage() {
         data={data?.data ?? []}
         getRowKey={(order) => order.id}
         emptyText={t("common.noData")}
+        isLoading={isLoading}
       />
 
       {selectedOrder && (

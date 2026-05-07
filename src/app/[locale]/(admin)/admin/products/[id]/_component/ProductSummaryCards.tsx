@@ -2,7 +2,7 @@
 
 import { Option } from "@/types/common";
 import { addCommas } from "@/utils";
-import { formatAdminCurrency } from "@/utils/adminStorage";
+import { formatAdminCurrency } from "@/utils";
 import { useLocale, useTranslations } from "next-intl";
 import { ProductFormState } from "./types";
 
@@ -18,7 +18,10 @@ export default function ProductSummaryCards({ categoryOptions, form }: Props) {
   const totalStock = form.variants.reduce(
     (total, variant) =>
       total +
-      variant.sizes.reduce((sizeTotal, size) => sizeTotal + Number(size.quantity || 0), 0),
+      variant.sizes.reduce(
+        (sizeTotal, size) => sizeTotal + Number(size.quantity || 0),
+        0,
+      ),
     0,
   );
 
@@ -34,8 +37,9 @@ export default function ProductSummaryCards({ categoryOptions, form }: Props) {
           {t("products.fields.category")}
         </p>
         <p className="mt-3 text-lg font-semibold text-slate-900">
-          {categoryOptions.find((option) => Number(option.value) === form.categoryId)?.label ??
-            t("common.noData")}
+          {categoryOptions.find(
+            (option) => Number(option.value) === form.categoryId,
+          )?.label ?? t("common.noData")}
         </p>
       </div>
 
@@ -43,7 +47,9 @@ export default function ProductSummaryCards({ categoryOptions, form }: Props) {
         <p className="text-xs uppercase tracking-[0.18em] text-slate-400">
           {t("products.fields.stock")}
         </p>
-        <p className="mt-3 text-lg font-semibold text-slate-900">{addCommas(String(totalStock))}</p>
+        <p className="mt-3 text-lg font-semibold text-slate-900">
+          {addCommas(String(totalStock))}
+        </p>
       </div>
 
       <div className="rounded-3xl border border-slate-200 bg-white p-5 shadow-sm">

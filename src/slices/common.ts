@@ -2,10 +2,12 @@ import { createSlice } from "@reduxjs/toolkit";
 
 export type CommonStates = {
   isLoading: boolean;
+  countNotiAdmin: number;
 };
 
 const initialState: CommonStates = {
   isLoading: false,
+  countNotiAdmin: 0,
 };
 
 const CommonSlice = createSlice({
@@ -15,9 +17,12 @@ const CommonSlice = createSlice({
     setLoading: (state, action) => {
       state.isLoading = action.payload;
     },
+    setNotificationCount: (state, action) => {
+      state.countNotiAdmin = action.payload;
+    },
   },
 });
 
-export const { setLoading } = CommonSlice.actions;
+export const { setLoading, setNotificationCount } = CommonSlice.actions;
 
 export default CommonSlice.reducer;

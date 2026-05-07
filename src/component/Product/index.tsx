@@ -9,11 +9,12 @@ import { Product } from "@/types/product";
 
 interface Props {
   data: Product[];
+  slideCount?: number;
 }
 
-function ListItem({ data }: Props) {
+function ListItem({ data, slideCount = 4 }: Props) {
   return (
-    <div className="w-full px-12 pb-12">
+    <div className="w-full px-5 md:px-12 pb-12">
       <Swiper
         modules={[Pagination, Autoplay]}
         spaceBetween={12}
@@ -25,10 +26,10 @@ function ListItem({ data }: Props) {
         loop
         grabCursor
         breakpoints={{
-          320: { slidesPerView: 1 },
-          640: { slidesPerView: 2 },
-          1024: { slidesPerView: 3 },
-          1280: { slidesPerView: 4 },
+          320: { slidesPerView: slideCount - 3 },
+          640: { slidesPerView: slideCount - 2 },
+          1024: { slidesPerView: slideCount - 1 },
+          1280: { slidesPerView: slideCount },
         }}
       >
         {data.map((item: any) => (

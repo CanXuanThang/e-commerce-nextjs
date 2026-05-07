@@ -35,3 +35,13 @@ export const updateStatusOrder = async (
   const response = await axiosClient.put(`/orders/${id}`, { status: status });
   return response.data;
 };
+
+export const resetCount = async (): Promise<BaseResponse<string>> => {
+  const response = await axiosClient.get(`/orders/reset-noti`);
+  return response.data;
+};
+
+export const getCount = async (): Promise<BaseResponse<{ count: number }>> => {
+  const response = await axiosClient.get(`/orders/get-noti`);
+  return response.data;
+};

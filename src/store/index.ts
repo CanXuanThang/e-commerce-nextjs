@@ -1,11 +1,13 @@
 import { configureStore } from "@reduxjs/toolkit";
 import CommonSlice from "@/slices/common";
-import CartItem from "@/slices/cartItem";
+import CartItemSlice from "@/slices/cartItem";
+import ProductSlice from "@/slices/product";
 
 export const store = configureStore({
   reducer: {
     common: CommonSlice,
-    cartItem: CartItem,
+    cartItem: CartItemSlice,
+    product: ProductSlice,
   },
 });
 

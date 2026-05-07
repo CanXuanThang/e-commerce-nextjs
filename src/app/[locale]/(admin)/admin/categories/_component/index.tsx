@@ -4,17 +4,12 @@ import AdminBreadcrumb from "@/component/Admin/AdminBreadcrumb";
 import AdminTable, { AdminTableColumn } from "@/component/Admin/AdminTable";
 import { AdminCategory } from "@/types/admin";
 import {
-  adminStorageKeys,
-  readAdminCollection,
-  writeAdminCollection,
-} from "@/utils/adminStorage";
-import {
   PencilSquareIcon,
   PlusIcon,
   TrashIcon,
 } from "@heroicons/react/24/outline";
 import { useTranslations } from "next-intl";
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import CreateOrUpdate from "./CreateOrUpdate";
 import DeleteCategory from "./DeleteCategory";
 import { useQuery } from "@tanstack/react-query";

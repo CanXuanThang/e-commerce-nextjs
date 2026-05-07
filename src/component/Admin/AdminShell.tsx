@@ -21,6 +21,13 @@ import { destroyCookie } from "nookies";
 import { useTranslations } from "next-intl";
 import useGetLocalStorage from "@/hook/useGetLocalStorage";
 import { User } from "@/types/auth";
+import { ShoppingCartIcon } from "@heroicons/react/24/outline";
+import { useSocket } from "@/hook/useSocket";
+import { CommonStates, setNotificationCount } from "@/slices/common";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "@/store";
+import { useQuery } from "@tanstack/react-query";
+import { getCount } from "@/apis/order";
 
 interface Props {
   locale: AdminLocale;
@@ -48,10 +55,27 @@ function cn(...classes: Array<string | false | null | undefined>) {
 }
 
 export default function AdminShell({ locale, children }: Props) {
+  useSocket();
+  const dispatch = useDispatch();
   const t = useTranslations("Admin");
   const userInfo = useGetLocalStorage<User>("user");
   const router = useRouter();
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const { countNotiAdmin }: CommonStates = useSelector(
+    (state: RootState) => state.common,
+  );
+
+  const {} = useQuery({
+    queryKey: ["get-noti-count"],
+    queryFn: async () => {
+      const count = await getCount();
+
+      if (count.success) {
+        dispatch(setNotificationCount(count.data.count));
+      }
+      return;
+    },
+  });
 
   const handleLogout = () => {
     destroyCookie(null, "accessToken");
@@ -83,6 +107,18 @@ export default function AdminShell({ locale, children }: Props) {
           </div>
 
           <div className="flex items-center gap-3">
+            <Link href={"/admin/order"} className="relative">
+              <ShoppingCartIcon
+                width={20}
+                color="#7a7e7f"
+                className="cursor-pointer"
+              />
+              {countNotiAdmin > 0 && (
+                <span className="absolute text-[8px] top-[-6px] right-[-6px] flex bg-red-500 w-3.5 h-3.5 justify-center text-center items-center text-white rounded-full font-semibold">
+                  {countNotiAdmin}
+                </span>
+              )}
+            </Link>
             <SwitchLanguage locale={locale} />
 
             <Menu as="div" className="relative">

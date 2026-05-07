@@ -30,3 +30,22 @@ export const addCommas = (nStr: string | undefined) => {
   }
   return x1 + x2;
 };
+
+export const renderPath = (name: string) => {
+  return name
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/đ/g, "d")
+    .replace(/Đ/g, "D")
+    .replace(/\s+/g, "-")
+    .replace(/[^\w\-]+/g, "");
+};
+
+export function formatAdminCurrency(value: number, locale: string) {
+  return new Intl.NumberFormat(locale === "vi" ? "vi-VN" : "en-US", {
+    style: "currency",
+    currency: "VND",
+    maximumFractionDigits: 0,
+  }).format(value);
+}
