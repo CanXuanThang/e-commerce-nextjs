@@ -12,7 +12,6 @@ import { toast } from "sonner";
 import { useDispatch } from "react-redux";
 import { setLoading } from "@/slices/common";
 import { useRouter } from "@/i18n/navigation";
-import { useSearchParams } from "next/navigation";
 
 const schema = z.object({
   email: z.string().email("Email không hợp lệ"),
@@ -22,7 +21,6 @@ const schema = z.object({
 function LoginForm() {
   const t = useTranslations("Login");
   const router = useRouter();
-  const searchParams = useSearchParams();
   const dispatch = useDispatch();
 
   const {
@@ -46,8 +44,7 @@ function LoginForm() {
         setCookie(null, "refreshToken", data.data.refreshToken);
         localStorage.setItem("user", JSON.stringify(data.data.user));
 
-        const redirect = searchParams.get("redirect");
-        router.push(redirect || "/");
+        router.back();
         return;
       }
 
@@ -61,7 +58,7 @@ function LoginForm() {
 
   const onSubmit = async (value: LoginRequest) => {
     dispatch(setLoading(true));
-    loginMutation.mutate(value); // 👈 không cần await
+    loginMutation.mutate(value);
   };
 
   return (

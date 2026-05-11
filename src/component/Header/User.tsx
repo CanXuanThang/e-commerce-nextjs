@@ -1,22 +1,19 @@
 "use client";
 
-import { parseCookies, destroyCookie } from "nookies";
+import { destroyCookie, parseCookies } from "nookies";
 import { useEffect, useState } from "react";
 import { UserIcon } from "@heroicons/react/24/outline";
 import { Link } from "@/i18n/navigation";
 import { useTranslations } from "next-intl";
 
 export default function UserMenu() {
-  const cookies = parseCookies();
   const t = useTranslations("Header.User");
   const [isLogin, setIsLogin] = useState(false);
 
   useEffect(() => {
-    const token = cookies.accessToken;
+    const cookies = parseCookies();
 
-    if (token) {
-      setIsLogin(true);
-    }
+    setIsLogin(!!cookies.accessToken);
   }, []);
 
   if (!isLogin) {
@@ -54,9 +51,14 @@ export default function UserMenu() {
 
           <button
             onClick={() => {
-              destroyCookie(null, "accessToken");
-              destroyCookie(null, "refreshToken");
+              destroyCookie(null, "accessToken", {
+                path: "/",
+              });
+              destroyCookie(null, "refreshToken", {
+                path: "/",
+              });
               localStorage.clear();
+              setIsLogin(false);
               window.location.reload();
             }}
             className="block w-full px-4 py-2 text-left hover:bg-gray-100 cursor-pointer"

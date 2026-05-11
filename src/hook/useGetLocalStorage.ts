@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 export default function useGetLocalStorage<T>(key: string) {
-  const [storedValue, setStoredValue] = useState<T>(() => {
+  const [storedValue] = useState<T>(() => {
     if (typeof window === "undefined") return {} as T;
 
     const data = localStorage.getItem(key);
