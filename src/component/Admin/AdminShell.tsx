@@ -13,6 +13,7 @@ import {
   UserCircleIcon,
   UsersIcon,
   XMarkIcon,
+  AdjustmentsHorizontalIcon,
 } from "@heroicons/react/24/outline";
 import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/react";
 import Image from "next/image";
@@ -35,6 +36,7 @@ interface Props {
 }
 
 const navIcons = {
+  dashboard: AdjustmentsHorizontalIcon,
   users: UsersIcon,
   products: ShoppingBagIcon,
   categories: TagIcon,
@@ -43,6 +45,7 @@ const navIcons = {
 };
 
 const navItems = [
+  { key: "dashboard", href: "/admin" },
   { key: "users", href: "/admin/users" },
   { key: "products", href: "/admin/products" },
   { key: "categories", href: "/admin/categories" },
@@ -126,10 +129,10 @@ export default function AdminShell({ locale, children }: Props) {
                 <UsersIcon width={20} height={20} />
                 <div className="hidden text-left md:block">
                   <p className="text-sm font-semibold text-slate-900 uppercase">
-                    {userInfo.name ?? ""}
+                    {userInfo?.name ?? ""}
                   </p>
                   <p className="text-xs text-slate-500">
-                    {userInfo.email ?? ""}
+                    {userInfo?.email ?? ""}
                   </p>
                 </div>
               </MenuButton>

@@ -30,4 +30,5 @@ export interface Order {
   createdAt: string;
   user: User;
   items: OrderItem[];
+  totalQuantity: number;
 }

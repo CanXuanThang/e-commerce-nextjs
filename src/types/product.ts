@@ -77,3 +77,10 @@ export interface UpdateProductDetailVariantRequest {
 export interface UpdateProductDetailsRequest {
   variants: UpdateProductDetailVariantRequest[];
 }
+
+export interface TopSellingProduct {
+  productVariantId: number;
+  totalSold: number;
+  totalAmount: number;
+  name: string;
+}

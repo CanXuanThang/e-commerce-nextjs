@@ -103,11 +103,22 @@
         "profile": "Personal information",
         "logout": "Logout",
         "nav": {
+            "dashboard": "Dashboard",
             "users": "User",
             "products": "Product",
             "categories": "Category",
             "banners": "Banner",
             "orders": "Order"
+        },
+        "dashboard": {
+            "title": "Dashboard",
+            "totalRevenue": "Total Revenue",
+            "totalOrders": "Total Orders",
+            "totalProductsSold": "Total Products Sold",
+            "topProducts": "Top 5 Best Selling Products",
+            "monthlyRevenue": "Monthly Revenue",
+            "currency": "VND",
+            "productsUnit": "products"
         },
         "breadcrumb": {
             "home": "Admin"

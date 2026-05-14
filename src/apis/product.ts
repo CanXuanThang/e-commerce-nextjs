@@ -3,6 +3,7 @@ import { BaseResponse } from "@/types/common";
 import {
   Product,
   ProductByCategoryResponse,
+  TopSellingProduct,
   UpdateProductRequest,
 } from "@/types/product";
 
@@ -79,10 +80,21 @@ export const updateProductDetails = async (
   productId: number,
   payload: FormData,
 ): Promise<BaseResponse<string>> => {
-  const response = await axiosClient.put(`${path}/${productId}/details`, payload, {
-    headers: {
-      "Content-Type": "multipart/form-data",
+  const response = await axiosClient.put(
+    `${path}/${productId}/details`,
+    payload,
+    {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
     },
-  });
+  );
+  return response.data;
+};
+
+export const getTopSellingProducts = async (
+  count?: number,
+): Promise<BaseResponse<TopSellingProduct[]>> => {
+  const response = await axiosClient.get(`${path}/top-selling/${count ?? 5}`);
   return response.data;
 };

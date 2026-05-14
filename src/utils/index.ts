@@ -49,3 +49,14 @@ export function formatAdminCurrency(value: number, locale: string) {
     maximumFractionDigits: 0,
   }).format(value);
 }
+
+export function formatMonthLabel(value: string) {
+  try {
+    const date = new Date(value);
+    const month = String(date.getMonth() + 1).padStart(2, "0");
+    const year = date.getFullYear();
+    return `${month}/${year}`;
+  } catch {
+    return value;
+  }
+}

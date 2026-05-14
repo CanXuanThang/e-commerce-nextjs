@@ -103,11 +103,22 @@
         "profile": "Thông tin cá nhân",
         "logout": "Đăng xuất",
         "nav": {
+            "dashboard": "Trang chủ",
             "users": "User",
             "products": "Product",
             "categories": "Category",
             "banners": "Banner",
             "orders": "Order"
+        },
+        "dashboard": {
+            "title": "Trang chủ",
+            "totalRevenue": "Tổng Thu Nhập",
+            "totalOrders": "Số Lượng Đơn Hàng",
+            "totalProductsSold": "Tổng Sản Phẩm Đã Bán",
+            "topProducts": "5 Mặt Hàng Bán Chạy Nhất",
+            "monthlyRevenue": "Thu Nhập Theo Tháng",
+            "currency": "VND",
+            "productsUnit": "sản phẩm"
         },
         "breadcrumb": {
             "home": "Admin"
