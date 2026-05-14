@@ -24,7 +24,7 @@ export default async function ProductDetailPage({ params }: Props) {
     <div className="space-y-6">
       <AdminBreadcrumb
         items={[
-          { label: t("breadcrumb.home"), href: "/admin/users" },
+          { label: t("breadcrumb.home"), href: "/admin" },
           { label: t("products.title"), href: "/admin/products" },
           { label: t("productDetail.title") },
         ]}

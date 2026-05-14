@@ -98,7 +98,7 @@ export default function AdminShell({ locale, children }: Props) {
             >
               <Bars3Icon className="size-6" />
             </button>
-            <Link href="/admin/users" className="flex items-center gap-3">
+            <Link href="/admin" className="flex items-center gap-3">
               <Image
                 src="/logo3.png"
                 alt="logo"

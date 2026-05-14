@@ -122,7 +122,7 @@ export default function BannersPage() {
     <div className="space-y-6">
       <AdminBreadcrumb
         items={[
-          { label: t("breadcrumb.home"), href: "/admin/users" },
+          { label: t("breadcrumb.home"), href: "/admin" },
           { label: t("banners.title") },
         ]}
         title={t("banners.title")}

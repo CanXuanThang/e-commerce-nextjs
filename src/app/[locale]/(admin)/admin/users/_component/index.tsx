@@ -146,7 +146,7 @@ export default function UsersPage({ initialUsers }: Props) {
     <div className="space-y-6">
       <AdminBreadcrumb
         items={[
-          { label: t("breadcrumb.home"), href: "/admin/users" },
+          { label: t("breadcrumb.home"), href: "/admin" },
           { label: t("users.title") },
         ]}
         title={t("users.title")}

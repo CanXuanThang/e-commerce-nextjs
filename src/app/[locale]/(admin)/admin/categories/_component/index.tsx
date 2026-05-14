@@ -91,7 +91,7 @@ export default function CategoriesPage() {
     <div className="space-y-6">
       <AdminBreadcrumb
         items={[
-          { label: t("breadcrumb.home"), href: "/admin/users" },
+          { label: t("breadcrumb.home"), href: "/admin" },
           { label: t("categories.title") },
         ]}
         title={t("categories.title")}

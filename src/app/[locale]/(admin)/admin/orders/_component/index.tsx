@@ -135,7 +135,7 @@ export default function OrdersPage() {
     <div className="space-y-6">
       <AdminBreadcrumb
         items={[
-          { label: t("breadcrumb.home"), href: "/admin/users" },
+          { label: t("breadcrumb.home"), href: "/admin" },
           { label: t("orders.title") },
         ]}
         title={t("orders.title")}

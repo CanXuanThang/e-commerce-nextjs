@@ -90,8 +90,6 @@ function UpdateOrder({
   const onSubmit = (values: OrderFormValues) => {
     const request = { id: selectedOrder.id, status: values.status };
 
-    console.log(request);
-
     updateMutation.mutate(request);
   };
 

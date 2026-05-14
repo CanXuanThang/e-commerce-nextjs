@@ -86,8 +86,6 @@ export default function AdminDashboard() {
       });
     });
 
-    console.log(productSales);
-
     return Array.from(productSales.entries())
       .sort((a, b) => b[1].quantity - a[1].quantity)
       .slice(0, 5)
@@ -127,10 +125,7 @@ export default function AdminDashboard() {
   return (
     <div className="space-y-6">
       <AdminBreadcrumb
-        items={[
-          { label: t("breadcrumb.home"), href: "/admin/users" },
-          { label: t("dashboard.title") },
-        ]}
+        items={[{ label: t("breadcrumb.home"), href: "/admin" }]}
         title={t("dashboard.title")}
         action={
           <DashboardDateFilter
