@@ -1,11 +1,17 @@
-import { BaseResponse } from "@/types/common";
+import {
+  BaseResponse,
+  PaginationRequest,
+  PaginationResponse,
+} from "@/types/common";
 import axiosClient from "@/config/axiosClient";
 import { CreateUserPayload, UserResponse } from "@/types/user";
 
 const path = "/users";
 
-export const getUsers = async (): Promise<BaseResponse<UserResponse[]>> => {
-  const response = await axiosClient.get(path);
+export const getUsers = async (
+  params: PaginationRequest,
+): Promise<BaseResponse<PaginationResponse<UserResponse[]>>> => {
+  const response = await axiosClient.get(path, { params });
   return response.data;
 };
 

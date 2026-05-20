@@ -64,6 +64,7 @@ function Header() {
             <button
               className="md:hidden p-2 border rounded-lg border-gray"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
+              aria-label={isMenuOpen ? "Close menu" : "Open menu"}
             >
               {isMenuOpen ? <XMarkIcon width={20} /> : <Bars3Icon width={20} />}
             </button>
@@ -74,6 +75,7 @@ function Header() {
                 alt="Logo"
                 width={100}
                 height={100}
+                sizes="(max-width: 768px) 50vw, 90px"
                 className="w-18 md:w-[90px]"
               />
             </Link>
@@ -85,7 +87,10 @@ function Header() {
               placeholder="Search products"
               className="w-full pl-2 outline-none"
             />
-            <button className="bg-red-500 px-3 py-1.5 rounded-lg">
+            <button
+              className="bg-red-500 px-3 py-1.5 rounded-lg"
+              aria-label="Search"
+            >
               <MagnifyingGlassIcon
                 width={18}
                 color="#fff"
@@ -95,7 +100,11 @@ function Header() {
           </div>
 
           <div className="flex items-center gap-3">
-            <button className="md:hidden" onClick={() => setIsSearchOpen(true)}>
+            <button
+              className="md:hidden"
+              onClick={() => setIsSearchOpen(true)}
+              aria-label="Open search"
+            >
               <MagnifyingGlassIcon
                 width={20}
                 color="#7a7e7f"
@@ -148,11 +157,17 @@ function Header() {
               className="w-full outline-none"
             />
 
-            <button className="bg-red-500 px-3 py-2 rounded-lg">
+            <button
+              className="bg-red-500 px-3 py-2 rounded-lg"
+              aria-label="Submit search"
+            >
               <MagnifyingGlassIcon width={18} color="#fff" />
             </button>
 
-            <button onClick={() => setIsSearchOpen(false)}>
+            <button
+              onClick={() => setIsSearchOpen(false)}
+              aria-label="Close search"
+            >
               <XMarkIcon width={22} />
             </button>
           </div>

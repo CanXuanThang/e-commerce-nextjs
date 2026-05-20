@@ -104,6 +104,7 @@ export default function AdminShell({ locale, children }: Props) {
                 alt="logo"
                 width={100}
                 height={100}
+                sizes="(max-width: 768px) 50vw, 90px"
                 className="w-18 md:w-[90px]"
               />
             </Link>

@@ -11,7 +11,7 @@ import {
 } from "@heroicons/react/24/outline";
 import { useQuery } from "@tanstack/react-query";
 import { useTranslations } from "next-intl";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import CreateOrUpdate from "./CreateOrUpdate";
 import { UserResponse } from "@/types/user";
 import { format } from "date-fns";
@@ -33,6 +33,8 @@ export default function UsersPage({ initialUsers }: Props) {
   const t = useTranslations("Admin");
   const [dialogMode, setDialogMode] = useState<DialogMode>(null);
   const [selectedUser, setSelectedUser] = useState<AdminUserRecord>();
+  const [pageNumber, setPageNumber] = useState(1);
+  const [pageSize, setPageSize] = useState(20);
 
   const closeDialog = () => {
     setDialogMode(null);
@@ -53,14 +55,27 @@ export default function UsersPage({ initialUsers }: Props) {
     setDialogMode("delete");
   };
 
-  const { data, isLoading, refetch } = useQuery({
-    queryKey: ["get-users"],
-    queryFn: getUsers,
-    initialData: {
+  const initialUsersResponse = useMemo(
+    () => ({
       success: true,
       message: "",
-      data: initialUsers,
-    },
+      data: {
+        data: initialUsers,
+        pagination: {
+          pageNumber: 1,
+          pageSize,
+          totalRecords: initialUsers.length,
+          totalPages: Math.max(1, Math.ceil(initialUsers.length / pageSize)),
+        },
+      },
+    }),
+    [initialUsers, pageSize],
+  );
+
+  const { data, isLoading, refetch } = useQuery({
+    queryKey: ["get-users", pageNumber, pageSize],
+    queryFn: () => getUsers({ pageNumber, pageSize }),
+    initialData: initialUsersResponse,
   });
 
   const columns: AdminTableColumn<AdminUserRecord>[] = [
@@ -132,7 +147,7 @@ export default function UsersPage({ initialUsers }: Props) {
   ];
 
   const rows =
-    (data?.data.map((user) => ({
+    (data?.data.data.map((user) => ({
       id: user.id,
       name: user.name,
       email: user.email,
@@ -141,6 +156,10 @@ export default function UsersPage({ initialUsers }: Props) {
       isActive: user.isActive,
       createdAt: format(user.createdAt, "dd/MM/yyyy"),
     })) as AdminUserRecord[]) ?? [];
+
+  const pagination = data?.data.pagination;
+  const totalPages = pagination?.totalPages ?? 1;
+  const totalRecords = pagination?.totalRecords ?? 0;
 
   return (
     <div className="space-y-6">
@@ -169,6 +188,17 @@ export default function UsersPage({ initialUsers }: Props) {
         emptyText={t("common.noData")}
         isLoading={isLoading}
         onRowClick={(user) => setSelectedUser(user)}
+        pagination={{
+          pageNumber,
+          pageSize,
+          totalRecords,
+          totalPages,
+          onPageChange: setPageNumber,
+          onPageSizeChange: (size) => {
+            setPageSize(size);
+            setPageNumber(1);
+          },
+        }}
       />
 
       <CreateOrUpdate

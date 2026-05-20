@@ -35,10 +35,12 @@ export default function OrdersPage() {
   const locale = useLocale();
   const [dialogMode, setDialogMode] = useState<DialogMode>(null);
   const [selectedOrder, setSelectedOrder] = useState<Order | null>(null);
+  const [pageNumber, setPageNumber] = useState(1);
+  const [pageSize, setPageSize] = useState(20);
 
   const { data, isLoading, refetch } = useQuery({
-    queryKey: ["get-all-orders"],
-    queryFn: getAllOrders,
+    queryKey: ["get-all-orders", pageNumber, pageSize],
+    queryFn: () => getAllOrders({ pageNumber, pageSize }),
   });
 
   const {} = useQuery({
@@ -143,10 +145,21 @@ export default function OrdersPage() {
 
       <AdminTable
         columns={columns}
-        data={data?.data ?? []}
+        data={data?.data.data ?? []}
         getRowKey={(order) => order.id}
         emptyText={t("common.noData")}
         isLoading={isLoading}
+        pagination={{
+          pageNumber,
+          pageSize,
+          totalRecords: data?.data.pagination?.totalRecords ?? 0,
+          totalPages: data?.data.pagination?.totalPages ?? 1,
+          onPageChange: setPageNumber,
+          onPageSizeChange: (size) => {
+            setPageSize(size);
+            setPageNumber(1);
+          },
+        }}
       />
 
       {selectedOrder && (

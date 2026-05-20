@@ -75,6 +75,7 @@ export default function BannersPage() {
             alt={`Banner ${banner.id}`}
             width={60}
             height={60}
+            sizes="60px"
             className="size-14 rounded-2xl object-cover"
           />
         </div>

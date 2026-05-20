@@ -41,6 +41,7 @@ export default async function Home({
         width={1200}
         height={400}
         quality={100}
+        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 1200px"
         alt="banner"
         className="w-full"
       />

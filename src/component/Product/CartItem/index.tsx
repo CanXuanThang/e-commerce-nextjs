@@ -25,6 +25,7 @@ function CartItem({ item }: Props) {
               alt="item"
               width={300}
               height={300}
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 300px"
               className="group-hover:hidden w-full"
             />
 
@@ -36,6 +37,7 @@ function CartItem({ item }: Props) {
               alt="item"
               width={300}
               height={300}
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 300px"
               className="hidden group-hover:block w-full"
             />
           </Link>
@@ -66,6 +68,7 @@ function CartItem({ item }: Props) {
               alt={`${item.name}-${index}`}
               width={36}
               height={36}
+              sizes="36px"
               key={index}
               onClick={() => setIndex(index)}
             />

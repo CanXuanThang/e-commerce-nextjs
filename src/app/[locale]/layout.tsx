@@ -6,6 +6,7 @@ import { ReactNode } from "react";
 import { Toaster } from "sonner";
 import Container from "@/providers";
 import Loading from "@/component/Loading";
+import { Metadata } from "next";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -22,13 +23,27 @@ type Props = {
   params: Promise<{ locale: string }>;
 };
 
-export async function generateMetadata({ params }: Props) {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "Metadata" });
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "";
 
   return {
     title: t("title"),
     description: t("description"),
+    viewport: "width=device-width, initial-scale=1",
+    robots: { index: true, follow: true },
+    alternates: {
+      canonical: siteUrl ? siteUrl : undefined,
+      languages: {
+        vi: siteUrl ? `${siteUrl}/vi` : "/vi",
+        en: siteUrl ? `${siteUrl}/en` : "/en",
+      },
+    },
+    openGraph: {
+      siteName: "E-Commerce",
+      locale: locale === "vi" ? "vi_VN" : "en_US",
+    },
   };
 }
 

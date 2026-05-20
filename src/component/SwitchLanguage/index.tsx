@@ -21,12 +21,28 @@ const options: Menu[] = [
   {
     id: "vi",
     name: "VI",
-    children: <Image src="/svg/vi-flag.svg" alt="vi" width={22} height={22} />,
+    children: (
+      <Image
+        src="/svg/vi-flag.svg"
+        alt="vi"
+        width={22}
+        height={22}
+        sizes="22px"
+      />
+    ),
   },
   {
     id: "en",
     name: "EN",
-    children: <Image src="/svg/en-flag.svg" alt="en" width={22} height={22} />,
+    children: (
+      <Image
+        src="/svg/en-flag.svg"
+        alt="en"
+        width={22}
+        height={22}
+        sizes="22px"
+      />
+    ),
   },
 ];
 

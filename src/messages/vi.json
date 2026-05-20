@@ -269,6 +269,12 @@
                 "createdAt": "Ngày tạo"
             }
         },
+        "pagination": {
+            "showing": "Hiển thị {current} trên {total} đơn hàng",
+            "pageSize": "Số hàng",
+            "previous": "Trước",
+            "next": "Sau"
+        },
         "productDetail": {
             "title": "Chi tiết sản phẩm",
             "back": "Quay lại danh sách sản phẩm",

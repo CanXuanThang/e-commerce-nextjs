@@ -24,6 +24,7 @@ function LeftContainer({ images, name }: Props) {
             alt={`${name}-${index}`}
             width={300}
             height={300}
+            sizes="(max-width: 768px) 20vw, 100px"
             className="cursor-pointer"
             onClick={() => setCurrentImg(index)}
           />
@@ -35,6 +36,7 @@ function LeftContainer({ images, name }: Props) {
           src={images[currentImg].imageUrl}
           width={300}
           height={300}
+          sizes="(max-width: 768px) 60vw, 300px"
           alt={`${name}`}
           className="w-full"
         />

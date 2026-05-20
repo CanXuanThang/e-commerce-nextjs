@@ -1,5 +1,9 @@
 import axiosClient from "@/config/axiosClient";
-import { BaseResponse } from "@/types/common";
+import {
+  BaseResponse,
+  PaginationRequest,
+  PaginationResponse,
+} from "@/types/common";
 import { Order, OrderRequest } from "@/types/order";
 
 export type StatusOrder = "pending" | "completed" | "cancelled" | "shipping";
@@ -16,8 +20,10 @@ export const getOrders = async (): Promise<BaseResponse<any>> => {
   return response.data;
 };
 
-export const getAllOrders = async (): Promise<BaseResponse<Order[]>> => {
-  const response = await axiosClient.get("/orders/all");
+export const getAllOrders = async (
+  params: PaginationRequest,
+): Promise<BaseResponse<PaginationResponse<Order[]>>> => {
+  const response = await axiosClient.get("/orders/all", { params });
   return response.data;
 };
 

@@ -51,6 +51,7 @@ function Blog({ listBlog }: Props) {
                   quality={100}
                   src={blog.img}
                   alt={blog.title}
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1280px) 33vw, 25vw"
                   className="w-full h-[210px] transition-transform duration-500 hover:scale-110 cursor-pointer"
                 />
               </div>
